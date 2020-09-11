@@ -6,6 +6,9 @@ export {
     POST_SMURF_SUCCESS,
     POST_SMURF_ERROR,
     postSMURF,
+} from './smurfActions'
+
+export {
     ADD_SMURF,
     addSmurf,
-} from './smurfActions'
+} from './addSmurf'
