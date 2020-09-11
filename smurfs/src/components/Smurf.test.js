@@ -1,8 +1,8 @@
-import React from 'react'
-import {render, screen} from '@testing-library/react'
-import index from '../index'
+// import React from 'react'
+// import {render, screen} from '@testing-library/react'
+// import App from './App'
     
-test('can load smurf info', () =>{
-    render(<index />)
-    const firstName = screen.findByText(/Brainey/i)
-})
+// test('can load smurf info', () =>{
+//     render(<Provider><App/></Provider>)
+//     const firstName = screen.findByText(/Brainey/i)
+// })

@@ -6,7 +6,7 @@ const Smurf = ({smurfData}) => {
     return (
         <>
         {smurfData.map(smurf => {
-            return <p>{smurf.name}</p>
+            return <p>{smurf.name} {smurf.age} {smurf.height}</p>
         })}
         </>
     )

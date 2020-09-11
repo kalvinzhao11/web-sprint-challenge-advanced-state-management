@@ -35,9 +35,7 @@ export const postSMURF = actions =>{
 }
 
 export const addSmurf = (smurf) => {
-    console.log('hfdfs')
     return (dispatch) => { 
-        console.log('hi')
         dispatch({
             type: ADD_SMURF,
             payload: smurf
