@@ -1,3 +1,5 @@
+import Smurf from "../../components/Smurf";
+
 export const ADD_SMURF = "ADD_SMURF";
 
 export const addSmurf = (smurf) => {
