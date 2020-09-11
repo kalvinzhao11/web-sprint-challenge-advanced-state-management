@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from "react";
 import {connect, useSelector} from 'react-redux'
-import {fetchSMURF} from '../store/actions'
+import {fetchSMURF, postSMURF} from '../store/actions'
 import Smurf from './Smurf'
 import "./App.css";
 import SmurfForm from './SmurfForm'
@@ -10,8 +10,9 @@ const App = ({fetchSMURF, errorMessage, loading, smurfData}) => {
 
   useEffect(()=>{
     fetchSMURF()
-    console.log(smurfData)
-  }, [fetchSMURF])
+  }, [])
+
+
     return (
       <div className="App">
         <h1>SMURFS! W/Redux</h1>
@@ -56,6 +57,9 @@ export default connect(mapsToStateProps, {fetchSMURF})(App);
 //   }
 // }
 
+// useEffect(()=>{
+//   mapsToStateProps()
+// },[])
 // const mapsToStateProps = (state) => {
 //   return {
 //     smurfData: state.smurfData,

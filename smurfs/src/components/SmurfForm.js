@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
-import {postSMURF} from '../store/actions'
+import {postSMURF, addSmurf} from '../store/actions'
 
 const SmurfForm = (props) => {
     const newSmurf = {
         name: '',
-        age: null,
-        height: null,
+        age: '',
+        height: '',
     }
-    const [smurf, setSmurt] = useState(newSmurf)
+    const [smurf, setSmurf] = useState(newSmurf)
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -16,10 +16,12 @@ const SmurfForm = (props) => {
         const smurtMaker = {
             name: smurf.name,
             age: smurf.age,
-            height: smurf.height,
+            height: smurf.height+'cm',
             id: Date.now()
         }
-        console.log(postSMURF(smurtMaker))
+        postSMURF(smurtMaker)
+        setSmurf(newSmurf)
+        addSmurf(smurtMaker)
     }
 
     return (
@@ -29,21 +31,21 @@ const SmurfForm = (props) => {
             <input
                 name='name'
                 value={smurf.name}
-                onChange={(e) => setSmurt({...smurf, name: e.target.value })}
+                onChange={(e) => setSmurf({...smurf, name: e.target.value })}
             ></input>
 
             <label>age: </label>
             <input
                 name='age'
                 value={smurf.age}
-                onChange={(e) => setSmurt({...smurf, age: e.target.value })}
+                onChange={(e) => setSmurf({...smurf, age: e.target.value })}
             ></input>
             
             <label>height: </label>
             <input
                 name='height'
                 value={smurf.height}
-                onChange={(e) => setSmurt({...smurf, height: e.target.value })}
+                onChange={(e) => setSmurf({...smurf, height: e.target.value })}
             ></input>
 
             <button>submit</button>
@@ -54,7 +56,7 @@ const SmurfForm = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        
+        smurfData: state.smurfData,
     }
 }
 
