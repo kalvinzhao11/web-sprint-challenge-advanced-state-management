@@ -19,7 +19,7 @@ const SmurfForm = (props) => {
             height: smurf.height+'cm',
             id: Date.now()
         }
-        postSMURF(smurtMaker)
+        props.postSMURF(smurtMaker)
         setSmurf(newSmurf)
     }
 

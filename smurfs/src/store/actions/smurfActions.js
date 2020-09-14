@@ -23,7 +23,7 @@ export const fetchSMURF = () => {
 
 // export const postSMURF = actions => dispatch => {
 export const postSMURF = actions => {
-    debugger
+    console.log(actions)
     return dispatch => {
         axios.post('http://localhost:3333/smurfs', actions)
         .then(response => {
@@ -33,6 +33,7 @@ export const postSMURF = actions => {
         })
         .catch(error => {
             console.error(error)
+            debugger
             dispatch({type: POST_SMURF_ERROR, payload: 'An Error has occur'})
         })
     }
