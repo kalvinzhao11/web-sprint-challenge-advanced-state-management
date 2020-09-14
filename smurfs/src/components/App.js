@@ -6,11 +6,11 @@ import "./App.css";
 import SmurfForm from './SmurfForm'
 
 
-const App = ({fetchSMURF, errorMessage, loading, smurfData}) => {
+const App = ({fetchSMURF, errorMessage, loading, smurfData, postSMURF}) => {
 
   useEffect(()=>{
     fetchSMURF()
-  }, [postSMURF])
+  }, [smurfData.length])
 
     return (
       <div className="App">
