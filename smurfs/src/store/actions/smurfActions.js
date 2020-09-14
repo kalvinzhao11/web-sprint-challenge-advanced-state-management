@@ -11,11 +11,9 @@ export const fetchSMURF = () => {
         dispatch({type: FETCH_SMURF})
         axios.get('http://localhost:3333/smurfs')
             .then(response => {
-                console.log(response)
                 dispatch({type: FETCH_SMURF_SUCCESS, payload: response.data})
             })
             .catch(error => {
-                console.error(error)
                 dispatch({type: FETCH_SMURF_ERROR, payload: 'An Error has occur'})
             })
     }
@@ -27,13 +25,9 @@ export const postSMURF = actions => {
     return dispatch => {
         axios.post('http://localhost:3333/smurfs', actions)
         .then(response => {
-            console.log(response)
-            // fetchSMURF()
             dispatch({type: POST_SMURF_SUCCESS, payload: response.data})
         })
         .catch(error => {
-            console.error(error)
-            debugger
             dispatch({type: POST_SMURF_ERROR, payload: 'An Error has occur'})
         })
     }
