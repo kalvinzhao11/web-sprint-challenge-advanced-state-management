@@ -21,17 +21,19 @@ export const fetchSMURF = () => {
     }
 }
 
-export const postSMURF = actions =>{
-// export const postSMURF = (actions) => {
-        // return (dispatch) => {
+// export const postSMURF = actions => dispatch => {
+export const postSMURF = actions => {
+    debugger
+    return dispatch => {
         axios.post('http://localhost:3333/smurfs', actions)
-            .then(response => {
-                console.log(response)
-                // dispatch({type: POST_SMURF_SUCCESS, payload: actions})
-            })
-            .catch(error => {
-                console.error(error)
-                // dispatch({type: POST_SMURF_ERROR, payload: 'An Error has occur'})
-            })
-        // }
+        .then(response => {
+            console.log(response)
+            // fetchSMURF()
+            dispatch({type: POST_SMURF_SUCCESS, payload: response.data})
+        })
+        .catch(error => {
+            console.error(error)
+            dispatch({type: POST_SMURF_ERROR, payload: 'An Error has occur'})
+        })
+    }
 }

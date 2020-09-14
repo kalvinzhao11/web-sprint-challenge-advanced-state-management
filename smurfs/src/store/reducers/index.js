@@ -2,7 +2,8 @@ import {
     FETCH_SMURF,
     FETCH_SMURF_SUCCESS,
     FETCH_SMURF_ERROR,
-    ADD_SMURF,
+    POST_SMURF_SUCCESS,
+    POST_SMURF_ERROR,
 } from '../actions';
 
 const initialState = {
@@ -23,11 +24,15 @@ export default (state = initialState, action) => {
             }
         case FETCH_SMURF_ERROR:
             return {
-                ...state, smurfData: [], errorMessage: action.payload, loading: true
+                ...state, errorMessage: action.payload, loading: false
             }
-        case ADD_SMURF:
+        case POST_SMURF_SUCCESS:
             return {
-                ...state, smurfData: [...state.smurfData, action.payload]
+                ...state, smurfData: [...state.smurfData, action.payload], loading: false
+            }
+        case POST_SMURF_ERROR:
+            return {
+                ...state, errorMessage: action.payload, loading: false
             }
         default:
             return state

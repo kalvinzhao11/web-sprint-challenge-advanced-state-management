@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
-import {postSMURF, addSmurf} from '../store/actions'
+import {postSMURF} from '../store/actions'
 
 const SmurfForm = (props) => {
     const newSmurf = {
@@ -21,7 +21,6 @@ const SmurfForm = (props) => {
         }
         postSMURF(smurtMaker)
         setSmurf(newSmurf)
-        addSmurf(smurtMaker)
     }
 
     return (
